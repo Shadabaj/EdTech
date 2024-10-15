@@ -1,0 +1,73 @@
+<body>
+    <div id="not-found-page" class="not-found-container">
+        <h1 class="error-code">404</h1>
+        <p class="error-message">Oops! The page you are looking for does not exist.</p>
+        <a href="/" class="back-home">Go Back Home</a>
+    </div>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        .not-found-container {
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .error-code {
+            font-size: 5rem;
+            color: #e74c3c;
+            animation: bounce 1s infinite;
+        }
+
+        .error-message {
+            font-size: 1.5rem;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        .back-home {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #3498db;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .back-home:hover {
+            background-color: #2980b9;
+        }
+
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+    </style>
+</body>

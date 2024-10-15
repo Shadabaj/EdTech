@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from 'src/app/Models/user';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-public-header',
@@ -7,5 +10,6 @@ import { Component } from '@angular/core';
   ]
 })
 export class PublicHeaderComponent {
+
 
 }

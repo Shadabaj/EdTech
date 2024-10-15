@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+.footer {
+
+
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-content {
+    margin: 0 auto;
+}
+
+footer {
+    background-color: #D9AFD9;background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        font-size: 14px;
+    }
+}

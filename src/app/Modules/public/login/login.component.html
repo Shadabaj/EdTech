@@ -1,1 +1,57 @@
-<p>login works!</p>
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="col-md-6 col-sm-8">
+        <h2>Login</h2>
+
+        <form [formGroup]="userForm" #form="ngForm" (ngSubmit)="LoginUser()">
+            <!-- First Name -->
+
+            <div class="mb-3">
+                <label for="username" class="form-label">First name</label>
+                <input type="text" class="form-control" id="username" formControlName="username" value="username">
+
+                <div class="text-danger"
+                    *ngIf="userForm.controls['username'].errors &&(userForm.controls['username'].touched || form.submitted)">
+                    <span [hidden]="!userForm.controls['username'].errors['required']">Enter the Username</span>
+                    <span [hidden]="!userForm.controls['username'].errors['email']">Enter the valid Username</span>
+                </div>
+            </div>
+
+            <!-- Last Name -->
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="text" class="form-control" id="password" formControlName="password" value="password"
+                    name="password" required>
+
+                <div class="text-danger"
+                    *ngIf="userForm.controls['password'].errors &&(userForm.controls['password'].touched || form.submitted)">
+                    <span [hidden]="!userForm.controls['password'].errors['required']">Enter the Password</span>
+
+                </div>
+            </div>
+
+            <!-- Buttons Section -->
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Submit form</button>
+                
+                <button class="btn btn-secondary ms-2" type="button" (click)="resetForm()">Cancel</button>
+
+                <button class="btn btn-secondary ms-2" type="button" onclick="window.history.back()"
+                    style="background-color: transparent; border: 1px solid #6c757d; color: #6c757d;">
+                    Go Back
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- 
+<script>
+    $(document).ready(function()
+    {
+        $('#cancelButton').click(function(){
+            $('#username').val('');
+            $('#password').val('');
+        })
+    });
+</script> -->
+    

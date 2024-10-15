@@ -11,6 +11,11 @@ import { PublicHeaderComponent } from './Shared/public-header/public-header.comp
 import { PublicFooterComponent } from './Shared/public-footer/public-footer.component';
 import { RouterModule } from '@angular/router';
 import { PublicRoutingModule } from './public-routing.module';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {  HttpClientModule } from '@angular/common/http';
+
+
 
 
 
@@ -24,12 +29,17 @@ import { PublicRoutingModule } from './public-routing.module';
     CoursesComponent,
     PubliclayoutComponent,
     PublicHeaderComponent,
-    PublicFooterComponent
+    PublicFooterComponent,
+    NotfoundComponent
+
   ],
   imports: [
     CommonModule,
     RouterModule,
-    PublicRoutingModule
+    PublicRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  
   ]
 })
 export class PublicModule { }
