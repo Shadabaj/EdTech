@@ -8,8 +8,8 @@ import { CategoriesComponent } from './categories/categories.component';
 const routes: Routes = [
   {path :'',component:AdminLayoutComponent,children:[
   {path:'',component:AdminDashBoardComponent},
-  {path:'Courses',component:CoursesComponent},
-  {path:'Categories',component:CategoriesComponent}
+  {path:'Admin/Courses',component:CoursesComponent},
+  {path:'Admin/Categories',component:CategoriesComponent}
 
 ]}
 

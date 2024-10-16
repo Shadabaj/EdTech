@@ -4,5 +4,5 @@ export interface SignUp{
   password:string;
   confirmpassword:string;
   phoneNumber: string;
-  roles:string[];
+  role:string;
 }

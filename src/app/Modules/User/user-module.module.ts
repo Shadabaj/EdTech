@@ -28,4 +28,4 @@ import { UserfooterComponent } from './Shared/userfooter/userfooter.component';
     UserRoutingModule
   ]
 })
-export class UserModuleModule { }
+export class UserModule { }

@@ -10,16 +10,14 @@ import { AuthService } from 'src/app/Services/auth.service';
   ]
 })
 export class AdminHeaderComponent {
-  
+
   user: User | undefined;
 
-  constructor(private _authservice: AuthService, private _router: Router) 
-  {
+  constructor(private _authservice: AuthService, private _router: Router) {
     this.user = this._authservice.user;
   }
 
-  SignOut() 
-  {
+  SignOut() {
     this._authservice.RemoveAuthUser();
     this.user = undefined;
     this._router.navigate(['/Login']);

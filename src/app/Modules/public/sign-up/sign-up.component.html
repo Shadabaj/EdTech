@@ -1,1 +1,89 @@
-<p>sign-up works!</p>
+
+<h2>SignUp</h2>
+<div class="col-sm-5" style=" justify-content: center; ">
+
+
+  
+<form #form="ngForm" [formGroup]="userForm" (ngSubmit)="SaveData()">
+
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" name="name" class="form-control" formControlName="name" />
+   
+    <div class="text-danger"
+      *ngIf="userForm.controls['name'].errors && (userForm.controls['name'].touched || form.submitted)">
+      <span [hidden]="!userForm.controls['name'].errors['required']">Please Enter Name</span>
+    </div>
+  </div>
+
+  
+  <div class="mb-3">
+    <label for="name" class="form-label">email</label>
+    <input type="text" name="email" class="form-control" formControlName="email" />
+   
+    <div class="text-danger"
+      *ngIf="userForm.controls['email'].errors && (userForm.controls['email'].touched || form.submitted)">
+      <span [hidden]="!userForm.controls['email'].errors['required']">Please Enter email</span>
+      <span [hidden]="!userForm.controls['email'].errors['email']">Enter Correct email</span>   
+    </div>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="name" class="form-label">Password</label>
+    <input type="text" name="password" class="form-control" formControlName="password" />
+    <div class="text-danger"
+      *ngIf="userForm.controls['password'].errors && (userForm.controls['password'].touched || form.submitted)">
+      <span [hidden]="!userForm.controls['password'].errors['required']">Please Enter Password</span>
+      <span [hidden]="!userForm.controls['password'].errors['pattern']">Password should contain 1 uppercase 1 lowercase 1 Special Charcter and Numberics</span>
+      <span [hidden]="!userForm.controls['password'].errors['minlength']">Password Should be More than 8 Characters</span>
+      <span [hidden]="!userForm.controls['password'].errors['maxLength']">Password Should be less than 20 Characters</span>
+
+
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="name" class="form-label">Confirm Password</label>
+    <input type="text" name="confirmpassword" class="form-control" formControlName="confirmpassword" />
+    <div class="text-danger"
+      *ngIf="userForm.controls['confirmpassword'].errors && (userForm.controls['confirmpassword'].touched || form.submitted)">
+      <span [hidden]="!userForm.controls['confirmpassword'].errors['required']">Please Enter Confirm Password</span>
+      <span
+        [hidden]="!(!userForm.controls['confirmpassword'].errors['required'] && !userForm.controls['confirmpassword'].errors['mathValue'])">Confirm
+        Password Doesn't Matched
+      </span>
+
+    </div>
+
+  <div class="mb-3">
+    <label for="name" class="form-label">Phone Number</label>
+    <input type="text" name="phoneNumber" class="form-control" formControlName="phoneNumber" />
+    <div class="text-danger"
+      *ngIf="userForm.controls['phoneNumber'].errors && (userForm.controls['phoneNumber'].touched || form.submitted)">
+      <span [hidden]="!userForm.controls['phoneNumber'].errors['required']">Enter the Number</span>
+      <span [hidden]="!userForm.controls['phoneNumber'].errors['pattern']">Please Enter Correct phoneNumber</span>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="role" class="form-label">Roles</label>
+    <select formControlName="role" class="form-control">
+      <ng-container *ngFor="let roles of role">
+        <option value="{{roles}}">{{roles}}</option>
+      </ng-container>
+    </select>
+
+    <div class="text-danger"
+        *ngIf="userForm.controls['role'].errors && (userForm.controls['role'].touched || form.submitted)">
+        <span [hidden]="!userForm.controls['role'].errors['required']">Select the Role</span>
+    </div>
+    
+  </div>
+
+  <div class="mb-3">
+    <input type="submit" value="Sign Up" class="btn btn-info"/>
+  </div>
+
+
+</div>

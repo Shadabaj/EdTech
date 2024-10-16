@@ -13,7 +13,11 @@ import { RouterModule } from '@angular/router';
 import { PublicRoutingModule } from './public-routing.module';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {  HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+
+
+
 
 
 
@@ -30,8 +34,8 @@ import {  HttpClientModule } from '@angular/common/http';
     PubliclayoutComponent,
     PublicHeaderComponent,
     PublicFooterComponent,
-    NotfoundComponent
-
+    NotfoundComponent,
+    UnauthorizedComponent
   ],
   imports: [
     CommonModule,

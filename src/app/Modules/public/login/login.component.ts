@@ -20,20 +20,18 @@ export class LoginComponent {
       password: ['', [Validators.required]]
     })
   }
-  LoginUser() 
-  {
+  LoginUser() {
     if (this.userForm.valid) {
       this._authservice.ValidateUser(this.userForm.value).subscribe(res => {
         if (res.body != null) {
 
           const user: User = res.body
-          if (user.roles.find(r => r == "Admin") == "Admin") 
-          {
+          this._authservice.SetAuthUser(user);
+          if (user.roles.find(r => r == "Admin") == "Admin") {
             this.router.navigate(['/Admin']);
           }
 
-          else if (user.roles.find(r => r == "User") == "User") 
-          {
+          else if (user.roles.find(r => r == "User") == "User") {
             this.router.navigate(['/User']);
           }
         }
@@ -44,7 +42,7 @@ export class LoginComponent {
   resetForm() {
     this.userForm.reset({
       username: '',
-      password: ''  
+      password: ''
     });
   }
 
