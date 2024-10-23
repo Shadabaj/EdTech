@@ -1,9 +1,13 @@
-<div class="d-flex justify-content-center align-items-center vh-100">
-    <div class="col-md-6 col-sm-8">
+
+<div class="d-flex justify-content-center align-items-center wrapper" >
+    <div class="col-md-3 col-sm-3">
         <h2>Login</h2>
 
         <form [formGroup]="userForm" #form="ngForm" (ngSubmit)="LoginUser()">
             <!-- First Name -->
+             <div class="mb-3 text-danger" *ngIf="error">
+               <strong>{{error}}</strong> 
+             </div>
 
             <div class="mb-3">
                 <label for="username" class="form-label">First name</label>
