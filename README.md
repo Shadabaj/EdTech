@@ -1,65 +1,76 @@
-# EdTech
+# EdTech Learning Platform
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+An Angular single-page application that demonstrates an online learning experience, including public pages, account flows, learner pages, and administration areas.
 
-## Development server
+## Project capabilities
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The current source tree includes UI modules and services for:
 
-## Code scaffolding
+- Public home, sign-up, login, course/category browsing, cart, and payment screens.
+- Learner pages for profile, orders, subscribed courses, and dashboard navigation.
+- Administration pages and category-management UI.
+- Role-aware routing with user/admin guards.
+- Shared authentication and cart services, plus an HTTP interceptor.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Some screens may be scaffolds or depend on a separate backend API; verify each flow locally before presenting it as production-ready.
 
-## Build
+## Technology stack
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Angular 16 and TypeScript
+- Angular Router, Reactive Forms, and RxJS
+- Bootstrap 5 and Bootstrap Icons
+- Jasmine and Karma test tooling
+- CryptoJS is present in the dependency set
 
-## Running unit tests
+## Run locally
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Prerequisites
 
-## Running end-to-end tests
+- Node.js and npm compatible with Angular CLI 16
+- Access to the backend API expected by the configured environment
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Install and start
 
-## Further help
+~~~bash
+npm ci
+npm start
+~~~
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Open `http://localhost:4200/`.
 
+### Build and test
 
+~~~bash
+npm run build
+npm test
+~~~
 
-//////////////////////Decrypt
+## Project layout
 
-Decrypt(encData: any): any {
-    try {
-      console.log('Encrypted data:', encData);
+~~~text
+src/
+├── Environment/          # Environment-specific client configuration
+└── app/
+    ├── Guards/           # User and admin route guards
+    ├── Interceptor/      # HTTP interceptor
+    ├── Models/           # Client-side data models
+    ├── Modules/
+    │   ├── Admin/        # Administration screens
+    │   ├── User/         # Learner account screens
+    │   └── public/       # Public, cart, login, signup and payment screens
+    └── Services/         # Authentication, cart and utility services
+~~~
 
-        // Check if encData is valid
-        if (!encData || typeof encData !== 'string' || encData.trim() === '') {
-            throw new Error('Invalid encrypted data.');
-        }
+## Configuration and security
 
-        // Try to decrypt the data using the provided key
-        const key = CryptoJS.enc.Hex.parse(environment.encKey);  // Ensure the key is parsed correctly
-        var bytes = CryptoJS.AES.decrypt(encData, key);  // Decrypt the data
-        
-        // Convert bytes to UTF-8
-        var decryptedData = bytes.toString(CryptoJS.enc.Utf8);
+Review the environment files under `src/Environment` and configure the correct API base URL for your own environment. Never put server credentials, private API keys, or production secrets in Angular environment files: values bundled into a browser application can be inspected by users.
 
-        // Check if decryption result is valid
-        if (!decryptedData || decryptedData.trim() === '') {
-            throw new Error('Decryption failed, result is empty.');
-        }
+The project includes client-side cryptographic code. Client-side encryption does not replace server-side authentication, authorization, validation, and secure key management; do not rely on a key embedded in frontend code as a secret.
 
-        // Try parsing the decrypted data as JSON
-        return JSON.parse(decryptedData);
-    } catch (error: unknown) {
-        if (error instanceof Error) {
-            console.error('Decryption error:', error.message);
-        } else {
-            console.error('Unknown error during decryption:', error);
-        }
+## Current scope
 
-        return null;  // Return null or handle the error appropriately
-    }
-}
+This repository contains the Angular frontend. Document and configure the corresponding backend/API separately, and verify payment/authentication behavior against a safe development environment before deployment.
+
+## License
+
+No license file is currently included. Add an explicit license before inviting others to reuse or redistribute this project.
