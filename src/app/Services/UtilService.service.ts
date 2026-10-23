@@ -19,9 +19,7 @@ export class UtilService {
   Encrypt(data: any): any 
   {
     let jsonData = JSON.stringify(data);
-    console.log(`Encrypt Json Data is ${data}`)
     let encData = CryptoJS.AES.encrypt(jsonData, environment.encKey);
-    console.log(`Encrypt Json Data is ${encData}`)
     //let encData = CryptoJS.enc.Hex.parse(jsonData, environment.encKey);
     return encData.toString();
   }
