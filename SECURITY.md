@@ -1,7 +1,11 @@
 # Security notes
 
-Please do not publish credentials, tokens, payment data, or personal information in issues.
+This repository contains an Angular browser application and client-side CryptoJS code.
 
-This repository contains a browser-based Angular frontend. Any configuration bundled into frontend code is visible to users. Keep private credentials on a trusted server and enforce authorization on the backend; client-side guards are a navigation aid, not a security boundary.
+- Values inside Angular environment files are bundled into the frontend and can be inspected by users. The active `encKey` value must not be treated as a private secret.
+- If encryption is being used to protect sensitive data, move that operation to a trusted backend and manage keys outside the browser bundle.
+- Do not log plaintext user data, authentication tokens, or encrypted payloads to the browser console.
+- Enforce authentication, authorization, validation, and data protection on the API server. Client-side route guards and obfuscation are not security boundaries.
+- Rotate any credential or key that was real and previously committed, and assess whether Git history cleanup is needed.
 
-For vulnerability reports, use GitHub's private vulnerability reporting feature if it is enabled, or contact the repository owner privately.
+Please avoid posting credentials, tokens, or personal data in public issues.
